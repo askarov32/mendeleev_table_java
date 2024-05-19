@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>The List of all Periodic Elements</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"></div>
 
+<h1>The List of all Periodic Elements</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Element ID</th>
+        <th>Name</th>
+        <th>Group</th>
+        <th>Period</th>
+        <th>Icon</th>
+        <th>Formula</th>
+        <th>Valency</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="element : ${elements}">
+        <td th:text="${element.id}"></td>
+        <td th:text="${element.element_id}"></td>
+        <td th:text="${element.name}"></td>
+        <td th:text="${element.group}"></td>
+        <td th:text="${element.period}"></td>
+        <td><img th:src="@{${element.icon}}" alt="Icon" width="50"></td>
+        <td th:text="${element.formula}"></td>
+        <td th:text="${element.valency}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
