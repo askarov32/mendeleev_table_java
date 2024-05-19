@@ -18,5 +18,4 @@ public class Element {
     private String icon;
     private String formula;
     private String valency;
-
 }
