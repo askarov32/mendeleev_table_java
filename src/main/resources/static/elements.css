@@ -2,39 +2,10 @@ body {
     background-color: #fff;
     color: #000;
 }
-
-nav {
-    background-color: #333;
-    overflow: hidden;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    float: left;
-}
-
-nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    background-color: #111;
-}
-
 .container {
     width: 80%;
     margin: 0 auto;
 }
-
 .element-container {
     display: flex;
     align-items: center;
@@ -42,21 +13,17 @@ nav ul li a:hover {
     padding: 10px;
     border: 1px solid #ccc;
 }
-
 .element-container:nth-child(odd) .image {
     order: 1;
     margin-right: 20px;
 }
-
 .element-container:nth-child(even) .image {
     order: 2;
     margin-left: 20px;
 }
-
 .element-container .image img {
     max-width: 100px;
 }
-
 .element-container .info {
     flex: 1;
 }
