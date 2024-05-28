@@ -1,14 +1,12 @@
 package main.mendeleyev.table_site.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 public class Element {
     private int id;
     private int element_id;
