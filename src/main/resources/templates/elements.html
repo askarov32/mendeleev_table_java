@@ -3,37 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>The List of all Periodic Elements</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div th:insert="fragments/navbar.html"></div>
 
-<h1>The List of all Periodic Elements</h1>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Element ID</th>
-        <th>Name</th>
-        <th>Group</th>
-        <th>Period</th>
-        <th>Icon</th>
-        <th>Formula</th>
-        <th>Valency</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="element : ${elements}">
-        <td th:text="${element.id}"></td>
-        <td th:text="${element.element_id}"></td>
-        <td th:text="${element.name}"></td>
-        <td th:text="${element.group}"></td>
-        <td th:text="${element.period}"></td>
-        <td><img th:src="@{${element.icon}}" alt="Icon" width="50"></td>
-        <td th:text="${element.formula}"></td>
-        <td th:text="${element.valency}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container mt-5">
+    <h1 class="mb-4">The List of all Periodic Elements</h1>
+    <div th:each="element : ${elements}" class="element-container row">
+        <div class="image col-md-3" style="align-items: center">
+            <img th:src="@{${element.icon}}" alt="Icon" class="img-fluid">
+        </div>
+        <div class="info col-md-9">
+            <p><strong>ID:</strong> <span th:text="${element.id}"></span></p>
+            <p><strong>Element ID:</strong> <span th:text="${element.element_id}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${element.name}"></span></p>
+            <p><strong>Group:</strong> <span th:text="${element.group}"></span></p>
+            <p><strong>Period:</strong> <span th:text="${element.period}"></span></p>
+            <p><strong>Formula:</strong> <span th:text="${element.formula}"></span></p>
+            <p><strong>Valency:</strong> <span th:text="${element.valency}"></span></p>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
