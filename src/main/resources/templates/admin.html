@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Administration Page</title>
+</head>
+<body>
+<div th:insert="fragments/navbar.html"></div>
+
+<div class="container mt-5">
+    <h1 class="mb-4">The List of all Periodic Elements</h1>
+    <div th:each="element : ${elements}" class="element-container row">
+        <div class="image col-md-3">
+            <a th:href="@{'/details-element/' + ${element.id}}">
+                <img th:src="@{${element.icon}}" alt="Icon" class="img-fluid">
+            </a>
+        </div>
+        <div class="info col-md-9">
+            <p><strong>Element ID:</strong> <span th:text="${element.element_id}"></span></p>
+            <p><strong>Name:</strong> <span th:text="${element.name}"></span></p>
+        </div>
+    </div>
+    <form th:action="@{'/update-element'}" method="post">
+        <div class="row mt-2 justify-content-center">
+            <input type="hidden" name="id" th:value="${element.id}">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>element id</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="element_id" readonly th:value="${element.element_id}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>name</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="name" th:value="${element.name}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>group</label>
+                        </div>
+                        <div>
+                            <textarea class="form-control" rows="3" name="group" th:text="${element.group}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>period</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="period" th:value="${element.period}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>icon</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="icon" th:value="${element.icon}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>formula</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="formula" th:value="${element.formula}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <label>valency</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="valency" th:value="${element.valency}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <button class="btn btn-sm btn-success" style="margin-top: 10px; width: 120px">add element</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
